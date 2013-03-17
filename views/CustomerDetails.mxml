@@ -114,7 +114,6 @@
 			protected function viewmenuitem1_clickHandler(event:MouseEvent):void
 			{
 				// TODO Auto-generated method stub
-				//navigator.pushView(views.InventoryHome,data);
 				navigator.pushView(views.InventoryHome,data);
 			}
 			

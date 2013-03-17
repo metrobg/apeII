@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<page>
+	<ROWSET>
+		<ROW num="1">
+			<CUSTNO>14090</CUSTNO>
+			<NAME>Holiday Foods</NAME>
+			<ADDRESS1>2050 Mckinley St.</ADDRESS1>
+			<ADDRESS2>
+			</ADDRESS2>
+			<CITY>Hollywood</CITY>
+			<STATE>FL</STATE>
+			<ZIP>33020</ZIP>
+			<PHONE>9549217786</PHONE>
+			<CONTRACT NULL="TRUE"/>
+			<PRICE_CATEGORY>L</PRICE_CATEGORY>
+		</ROW>
+		<ROW num="2">
+			<CUSTNO>1063</CUSTNO>
+			<NAME>Holiday Inn - Highland Beach</NAME>
+			<ADDRESS1>2809 South Ocean Blvd</ADDRESS1>
+			<ADDRESS2>
+			</ADDRESS2>
+			<CITY>Highland Beach</CITY>
+			<STATE>FL</STATE>
+			<ZIP>33487</ZIP>
+			<PHONE NULL="TRUE"/>
+			<CONTRACT NULL="TRUE"/>
+			<PRICE_CATEGORY>L</PRICE_CATEGORY>
+		</ROW>
+		<ROW num="3">
+			<CUSTNO>1143</CUSTNO>
+			<NAME>Holiday Inn - Orange Park</NAME>
+			<ADDRESS1>150 Park Ave.</ADDRESS1>
+			<ADDRESS2>
+			</ADDRESS2>
+			<CITY>Orange Park</CITY>
+			<STATE>FL</STATE>
+			<ZIP>32073</ZIP>
+			<PHONE>9042649513</PHONE>
+			<CONTRACT NULL="TRUE"/>
+			<PRICE_CATEGORY>L</PRICE_CATEGORY>
+		</ROW>
+		<ROW num="4">
+			<CUSTNO>1144</CUSTNO>
+			<NAME>Holiday Inn - Philadelphia</NAME>
+			<ADDRESS1>International Airport</ADDRESS1>
+			<ADDRESS2>45 Industrial Hwy</ADDRESS2>
+			<CITY>Essington</CITY>
+			<STATE>PA</STATE>
+			<ZIP>19029</ZIP>
+			<PHONE>2157247433</PHONE>
+			<CONTRACT NULL="TRUE"/>
+			<PRICE_CATEGORY>L</PRICE_CATEGORY>
+		</ROW>
+		<ROW num="5">
+			<CUSTNO>1149</CUSTNO>
+			<NAME>Holiday Inn Bay Meadows</NAME>
+			<ADDRESS1>9150 Bay Meadows Rd.</ADDRESS1>
+			<ADDRESS2>
+			</ADDRESS2>
+			<CITY>Jacksonville</CITY>
+			<STATE>FL</STATE>
+			<ZIP>32216</ZIP>
+			<PHONE>9047371700</PHONE>
+			<CONTRACT NULL="TRUE"/>
+			<PRICE_CATEGORY>L</PRICE_CATEGORY>
+		</ROW>
+		<ROW num="6">
+			<CUSTNO>25347</CUSTNO>
+			<NAME>Holiday Inn Hotel &amp; Suites</NAME>
+			<ADDRESS1>2725 Graves Road</ADDRESS1>
+			<ADDRESS2>
+			</ADDRESS2>
+			<CITY>Tallahassee</CITY>
+			<STATE>FL</STATE>
+			<ZIP>32303</ZIP>
+			<PHONE>8505362001</PHONE>
+			<CONTRACT NULL="TRUE"/>
+			<PRICE_CATEGORY>L</PRICE_CATEGORY>
+		</ROW>
+		<ROW num="7">
+			<CUSTNO>2148</CUSTNO>
+			<NAME>Holiday Inn Pro Palyer Stadium</NAME>
+			<ADDRESS1>21485 N.W. 27th Avenue</ADDRESS1>
+			<ADDRESS2>
+			</ADDRESS2>
+			<CITY>Miami</CITY>
+			<STATE>FL</STATE>
+			<ZIP>33056</ZIP>
+			<PHONE>3056215801</PHONE>
+			<CONTRACT NULL="TRUE"/>
+			<PRICE_CATEGORY>L</PRICE_CATEGORY>
+		</ROW>
+		<ROW num="8">
+			<CUSTNO>1152</CUSTNO>
+			<NAME>Holiday Inn Select - Ft.Myers</NAME>
+			<ADDRESS1>13051 Bell Tower Dr.</ADDRESS1>
+			<ADDRESS2>
+			</ADDRESS2>
+			<CITY>Ft. Myers</CITY>
+			<STATE>FL</STATE>
+			<ZIP>33907</ZIP>
+			<PHONE>9414822900</PHONE>
+			<CONTRACT NULL="TRUE"/>
+			<PRICE_CATEGORY>L</PRICE_CATEGORY>
+		</ROW>
+		<ROW num="9">
+			<CUSTNO>1150</CUSTNO>
+			<NAME>Holiday Inn West</NAME>
+			<ADDRESS1>7417 N.W. 8th Avenue</ADDRESS1>
+			<ADDRESS2>
+			</ADDRESS2>
+			<CITY>Gainsville</CITY>
+			<STATE>FL</STATE>
+			<ZIP>32605</ZIP>
+			<PHONE>9043327500</PHONE>
+			<CONTRACT NULL="TRUE"/>
+			<PRICE_CATEGORY>L</PRICE_CATEGORY>
+		</ROW>
+		<ROW num="10">
+			<CUSTNO>1105</CUSTNO>
+			<NAME>Holiday Inn West Stadium</NAME>
+			<ADDRESS1>4732 N Dale Mabry</ADDRESS1>
+			<ADDRESS2>
+			</ADDRESS2>
+			<CITY>Tampa</CITY>
+			<STATE>FL</STATE>
+			<ZIP>33614</ZIP>
+			<PHONE>8138776061</PHONE>
+			<CONTRACT NULL="TRUE"/>
+			<PRICE_CATEGORY>L</PRICE_CATEGORY>
+		</ROW>
+		<ROW num="11">
+			<CUSTNO>1107</CUSTNO>
+			<NAME>Holiday Isle Resort</NAME>
+			<ADDRESS1>84001 Overseas Highway</ADDRESS1>
+			<ADDRESS2>
+			</ADDRESS2>
+			<CITY>Islamorada</CITY>
+			<STATE>FL</STATE>
+			<ZIP>33036</ZIP>
+			<PHONE NULL="TRUE"/>
+			<CONTRACT NULL="TRUE"/>
+			<PRICE_CATEGORY>L</PRICE_CATEGORY>
+		</ROW>
+		<ROW num="12">
+			<CUSTNO>142356</CUSTNO>
+			<NAME>Publix - 504 Holiday Centre</NAME>
+			<ADDRESS1>4701 Sun Ray Drive</ADDRESS1>
+			<ADDRESS2>
+			</ADDRESS2>
+			<CITY>Holiday</CITY>
+			<STATE>FL</STATE>
+			<ZIP>34690</ZIP>
+			<PHONE>7279443551</PHONE>
+			<CONTRACT>PUBLI</CONTRACT>
+			<PRICE_CATEGORY>L</PRICE_CATEGORY>
+		</ROW>
+		<ROW num="13">
+			<CUSTNO>1155</CUSTNO>
+			<NAME>The Holiday Inn Ocala West</NAME>
+			<ADDRESS1>3621 W. Silver Spring Blvd.</ADDRESS1>
+			<ADDRESS2>
+			</ADDRESS2>
+			<CITY>Ocala</CITY>
+			<STATE>FL</STATE>
+			<ZIP>32678</ZIP>
+			<PHONE>9046290381</PHONE>
+			<CONTRACT NULL="TRUE"/>
+			<PRICE_CATEGORY>L</PRICE_CATEGORY>
+		</ROW>
+	</ROWSET>
+</page>

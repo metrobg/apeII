@@ -27,11 +27,11 @@
 			 
 			 
 				fld_search.prompt="Item Number or Description";
-				if (data is null)
+				/* if (data is null)
 				{
 					lbl_custname.text='Not Defined';
 					lbl_custno.text='9999999999';
-				}
+				} */
 			}
 
 			protected function btn_search_clickHandler(event:MouseEvent):void
@@ -93,7 +93,7 @@
 		<s:AsyncListView list="{getDataResult.lastResult}"/>
 	</s:List>				
 		 
-	 
+	
 	<s:BusyIndicator id="lbl_busy" visible="false" horizontalCenter="0" verticalCenter="-228"/>
 	<s:Label y="22" left="10" width="144" fontSize="18" text="Customer ID:" textAlign="right"/>
 	<s:Label id="lbl_custno" y="22" left="162" width="395"/>

@@ -36,7 +36,7 @@ internal class _Super_GetCustomer extends com.adobe.fiber.services.wrapper.HTTPS
          operation.serializationFilter = serializer0;
          operation.properties = new Object();
          operation.properties["xPath"] = "/::ROWSET/::ROW";
-        operation.resultElementType = valueObjects.CUSTOMER;
+         operation.resultElementType = valueObjects.CUSTOMER;
          operations.push(operation);
 
          _serviceControl.operationList = operations;  
@@ -54,9 +54,9 @@ internal class _Super_GetCustomer extends com.adobe.fiber.services.wrapper.HTTPS
     
 
     /**
-      * This method is a generated wrapper used to call the 'getData' operation. It returns an mx.rpc.AsyncToken whose
-      * result property will be populated with the result of the operation when the server response is received.
-      * To use this result from MXML code, define a CallResponder component and assign its token property to this method's return value.
+      * This method is a generated wrapper used to call the 'getData' operation. It returns an mx.rpc.AsyncToken whose 
+      * result property will be populated with the result of the operation when the server response is received. 
+      * To use this result from MXML code, define a CallResponder component and assign its token property to this method's return value. 
       * You can then bind to CallResponder.lastResult or listen for the CallResponder.result or fault events.
       *
       * @see mx.rpc.AsyncToken
@@ -67,7 +67,7 @@ internal class _Super_GetCustomer extends com.adobe.fiber.services.wrapper.HTTPS
     public function getData(find:String) : mx.rpc.AsyncToken
     {
         var _internal_operation:mx.rpc.AbstractOperation = _serviceControl.getOperation("getData");
-        var _internal_token:mx.rpc.AsyncToken = _internal_operation.send(find) ;
+		var _internal_token:mx.rpc.AsyncToken = _internal_operation.send(find) ;
         return _internal_token;
     }
      
