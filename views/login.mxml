@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		title="User Login" xmlns:getuser="services.getuser.*" creationComplete="view1_creationCompleteHandler(event)">
+	
+	<fx:Script>
+		<![CDATA[
+			import com.adobe.serializers.utility.TypeUtility;
+			
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			import mx.rpc.AsyncToken;
+			import mx.rpc.CallResponder;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			
+			import services.getuser.GetUser;
+			
+			import spark.components.ViewNavigator;
+			import spark.events.IndexChangeEvent;
+			
+			protected var currentUser:String;
+			
+			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			{
+				// TODO Auto-generated method stub
+			    lbl_identity.text = '';
+				
+			}
+			protected function btn_login_clickHandler(event:MouseEvent):void
+			{
+				if((fld_password.text.length < 4)|| (fld_user.text.length < 3)) {
+					lbl_identity.text = "Problem with username or password entry."
+						return
+				}
+				// TODO Auto-generated method stub	
+				lbl_busy.visible = true;
+				getDataResult.token = getUser.getData(fld_user.text,fld_password.text);			
+			}
+			private function getValueResultHandler():void
+			{
+				// ...
+				lbl_busy.visible = false;
+				if (getDataResult.lastResult.ID == 0)
+				{
+					lbl_identity.text="Invalid credentials, try again."
+					
+				}
+				else
+				{
+					
+					currentUser=fld_user.text;
+					navigator.pushView(views.mainMenu);
+				}
+			}			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		
+		<getuser:GetUser id="getUser" />
+		<s:CallResponder id="getDataResult"  result="getValueResultHandler()" />
+				
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:TextInput id="fld_user" y="109" left="168" right="10" prompt="Enter user name" />
+	<s:TextInput id="fld_password" y="175" left="168" right="10" displayAsPassword="true"
+				 needsSoftKeyboard="true" prompt="Enter password" returnKeyLabel="done"/>
+	<s:Label y="119" left="10" width="126" text="User Name" textAlign="right"/>
+	<s:Label y="184" left="10" width="126" text="Password" textAlign="right"/>
+	<s:Button y="247" width="130" id="btn_login" label="Sign In" horizontalCenter="0" click="btn_login_clickHandler(event)"/>
+	<s:Label y="38" left="10" right="10" fontSize="20" text="Rader Foods Staff Login"
+			 textAlign="center"/>
+	<s:Label id="lbl_identity" y="338" left="0" right="0" text="Processing login Identity"
+			 textAlign="center"/>
+	<s:BusyIndicator id="lbl_busy" y="372" horizontalCenter="0" visible="false"/>
+</s:View>

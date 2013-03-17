@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		title="Customer Details" xmlns:mx="library://ns.adobe.com/flex/mx" creationComplete="init()">
+	
+	
+	<fx:Script>
+		<![CDATA[
+			 
+			
+			import mx.collections.ArrayCollection;
+			import mx.core.FlexGlobals;
+			import mx.formatters.PhoneFormatter;
+			
+			import spark.events.IndexChangeEvent;
+			
+			import valueObjects.CUSTOMER;
+			
+			[Bindable]
+			protected var actions:ArrayCollection;
+			
+			public var cust:valueObjects.CUSTOMER;
+			 
+			
+			[Embed("assets/sms.png")]
+			private var smsIcon:Class;
+			
+			[Embed("assets/phone.png")]
+			private var phoneIcon:Class;
+			
+			[Embed("assets/mail.png")]
+			private var mailIcon:Class;
+          
+			private var phoneNumber:String;
+			private var pf:PhoneFormatter;
+			
+			private function init():void {
+				pf = new PhoneFormatter;
+				cust = new CUSTOMER();
+				cust = data as valueObjects.CUSTOMER;
+				pf.formatString = "(###) ###-####";
+				showMenu(true);
+				 lbl_custno.text = String(cust.CUSTNO);
+				lbl_name.text = cust.NAME;
+				lbl_address1.text = cust.ADDRESS1;
+				lbl_address2.text = cust.ADDRESS2;
+				lbl_csz.text = cust.CITY + ", " + cust.STATE + " " + cust.ZIP;
+				lbl_phone.text = pf.format(cust.PHONE);   
+				
+			}
+			override public function set data(value:Object):void
+			{
+				super.data = value;
+				actions = new ArrayCollection();
+				 
+				
+				/* if (data.PHONE)
+				{
+					
+					actions.addItem({
+						type: "tel", 
+						name: "Call office", 
+						details: data.PHONE, 
+						icon:phoneIcon});
+				}
+				if (data.cellPhone)
+				{
+					actions.addItem({type: "tel", name: "Call mobile", 
+						details: data.cellPhone, icon:phoneIcon});
+					actions.addItem({type: "sms", name: "SMS", 
+						details: data.cellPhone, icon:smsIcon});
+				}
+				if (data.email)
+				{
+					actions.addItem({type: "mailto", name: "Email", 
+						details: data.email, icon:mailIcon});
+				}
+				 
+			} */
+
+			/* protected function list_changeHandler(event:IndexChangeEvent):void
+			{
+				var action:Object = list.selectedItem;
+				switch (action.type)
+				{
+					case "tel":
+						navigateToURL(new URLRequest("tel:"+action.details));
+						break;
+					
+					case "sms":
+						navigateToURL(new URLRequest("sms:"+action.details));
+						break;
+					
+					case "mailto":
+						navigateToURL(new URLRequest("mailto:"+action.details));
+						break;
+				}			
+				
+				*/ 
+			} 
+			
+			private function formatPhone(value:Object):String {
+			return pf.format(value);
+			}
+			  private function showMenu(val:Boolean):void
+			{
+			FlexGlobals.topLevelApplication.viewMenuOpen=val;
+			}  
+			/* private function showMenu(event:flash.events.FocusEvent):void
+			{
+				FlexGlobals.topLevelApplication.viewMenuOpen=true;
+			} */
+			
+			protected function viewmenuitem1_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				//navigator.pushView(views.InventoryHome,data);
+				navigator.pushView(views.InventoryHome,data);
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		
+	</fx:Declarations>
+	<s:HGroup verticalAlign="middle" gap="12">
+		
+		<!--<s:Image source="assets/pics/{data.picture}"/>-->
+		
+		<s:VGroup paddingBottom="5" paddingLeft="10" paddingRight="5" paddingTop="10">
+			<s:Label id="lbl_custno" />
+			<s:Label id="lbl_name" />
+			<s:Label id="lbl_address1" />
+			<s:Label id="lbl_address2"/>
+			<s:Label id="lbl_csz"/>
+			<s:Label id="lbl_phone"/>
+		</s:VGroup>
+		
+	</s:HGroup>
+	
+	<s:viewMenuItems>
+		<s:ViewMenuItem label="Item" click="viewmenuitem1_clickHandler(event)" />
+		
+		<s:ViewMenuItem label="Add"/>
+		<s:ViewMenuItem label="Delete"/>
+		
+	</s:viewMenuItems>
+	
+	
+</s:View>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="Main Menu" creationComplete="view1_creationCompleteHandler(event)">
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			
+			import spark.events.IndexChangeEvent;
+			
+			[Bindable]
+			private var acMenu:ArrayCollection;
+			
+			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			{
+				// TODO Auto-generated method stub
+				acMenu = new ArrayCollection();
+				acMenu.addItem({LABEL:"Check Inventory",DATA: "IV-ITMFIL"});
+				acMenu.addItem({LABEL:"Customer Lookup",DATA: "AR-CUSMAS"});
+				acMenu.addItem({LABEL:"Customer Pricing",DATA: "OE-PRICE"});
+				list_menu.dataProvider = acMenu;
+				acMenu.refresh();
+			}
+			
+			protected function list_menu_changeHandler(event:IndexChangeEvent):void
+			{
+				// TODO Auto-generated method stub
+				if (event.newIndex >= 0)
+				{
+					switch (event.target.selectedItem.DATA)
+					{
+
+						case "AR-CUSMAS":
+							navigator.pushView(views.CustomerDirectoryHome);
+							break;
+						case "IV-ITMFIL":
+							navigator.pushView(views.InventoryHome);
+							break;
+					}
+				}
+			}
+
+			
+			
+		]]>
+	</fx:Script>
+	 
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Label y="30" left="0" right="0" fontSize="22" text="Select an action from the list below."
+			 textAlign="center"/>
+	<s:List id="list_menu" left="10" right="10" top="100" change="list_menu_changeHandler(event)" labelField="LABEL"/> 
+</s:View>

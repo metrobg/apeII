@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:getcustomer="services.getcustomer.*"
+		creationComplete="init()" title="Home" >
+	<fx:Script>
+		<![CDATA[
+			import components.AlertPopUp;
+			
+			import mx.collections.ArrayCollection;
+			import mx.core.FlexGlobals;
+			import mx.events.FlexEvent;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			
+			import spark.events.PopUpEvent;
+			
+			import valueObjects.CUSTOMER;
+			
+			private var re:RegExp;
+			private var alertBox:AlertPopUp;
+			
+			private var reqObj:Object;
+			protected var vAC:ArrayCollection;
+			
+			private function init():void {
+				re = new RegExp("[A-Z]*","ig");
+				reqObj = new Object();
+				alertBox = new AlertPopUp();
+				alertBox.addEventListener(PopUpEvent.CLOSE, onCloseAlert);
+				vAC = new ArrayCollection();
+				
+			}
+			protected function addNIF():valueObjects.CUSTOMER {
+				var c:CUSTOMER = new CUSTOMER();
+				c.NAME = "Record Not Found";
+				c.CUSTNO = 0;
+				c.ADDRESS1 = " ";
+				c.ADDRESS2 = " ";
+				c.CITY = '';
+				c.STATE = '';
+				c.ZIP = '';
+				c.PHONE = '0000000000';
+				return c;
+			}
+			protected function xsql_1_resultHandler(event:ResultEvent):void
+			{
+				lbl_busy.visible = false;
+				vAC = event.result as ArrayCollection;
+				if(ArrayCollection(event.result).length == 0){
+				   ArrayCollection(event.result).addItemAt(addNIF(),0);
+				     
+				}
+				data=vAC;				
+				
+			}
+			
+			protected function xsql_2_resultHandler(event:ResultEvent):void
+			{
+				
+				lbl_busy.visible = false;
+				  navigator.pushView(views.CustomerDetails,event.result.page.ROWSET.ROW);
+					  
+			}
+			
+			protected function xsql_1_faultHandler(event:FaultEvent):void
+			{
+				//alertBox = new AlertPopUp();
+				alertBox.show("Problem getting data from server.");
+				
+			}
+			 
+			
+			 
+			
+			protected function btn_search_clickHandler(event:MouseEvent):void
+			{
+				if ((fld_search.text == "") || (fld_search.text.length < 3))
+				{
+					alertBox = new AlertPopUp();
+					alertBox.show("Customer search field requires either a customer "+
+						          "number, or at least 3 characters of the customers name");
+					return;
+				}
+				else
+				{
+					//var match:Array = re.exec(fld_search.text);
+					getDataResult.token = getCustomer.getData(fld_search.text);
+					
+					lbl_busy.visible = true;
+				}
+				
+			}
+			
+			protected function fld_search_focusInHandler(event:FocusEvent):void
+			{
+				// TODO Auto-generated method stub
+				fld_search.text = '';
+				//list.dataProvider = null;
+				
+			}
+			private function onCloseAlert(event:PopUpEvent):void
+			{
+				fld_search.text = '';
+				//FlexGlobals.topLevelApplication.viewMenuOpen=true;
+				// Do some stuff here	
+			}
+		
+			
+			protected function list_creationCompleteHandler(event:FlexEvent):void
+			{
+				//getDataResult.token = getCustomer.getData("1024");
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		
+		<s:CallResponder id="getDataResult" result="xsql_1_resultHandler(event)"/>
+		<getcustomer:GetCustomer id="getCustomer" />
+		
+		
+	</fx:Declarations>
+	
+	<s:navigationContent/>
+	
+	<s:titleContent>
+		<s:TextInput id="fld_search" width="100%" focusIn="fld_search_focusInHandler(event)"
+					 prompt="Enter Customer Number or Name"/>
+	</s:titleContent>
+	
+	<s:actionContent>
+		<s:Button icon="@Embed('assets/search.png')" id="btn_search" click="btn_search_clickHandler(event)"   />
+	</s:actionContent>
+	
+	<s:List id="list" left="0" right="0" top="0" bottom="0" alternatingItemColors="[#66ffff,#33cccc]"
+			change="navigator.pushView(CustomerDetails, list.selectedItem)"
+			creationComplete="list_creationCompleteHandler(event)" fontSize="16"
+			selectionColor="#cc6600">
+		<s:itemRenderer>
+			<fx:Component>
+				<s:IconItemRenderer 
+					label="{data.CUSTNO}  |  {data.NAME}"
+					messageField="ADDRESS"/>
+			</fx:Component>
+		</s:itemRenderer>
+		<s:AsyncListView list="{getDataResult.lastResult}"/>
+	</s:List>
+	<s:BusyIndicator id="lbl_busy" visible="false" horizontalCenter="0" verticalCenter="-228"/>
+
+	
+</s:View>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="Home" creationComplete="init()" 
+		xmlns:getinventory="services.getinventory.*">
+	<fx:Script>
+		<![CDATA[
+			import components.AlertPopUp;
+			
+			import mx.collections.ArrayCollection;
+			import mx.collections.XMLListCollection;
+			import mx.core.FlexGlobals;
+			import mx.events.FlexEvent;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			import flash.events.FocusEvent;
+			import spark.events.PopUpEvent;
+			
+			import valueObjects.CUSTOMER;				 
+			 
+			private var cust:CUSTOMER;
+			 
+			
+			[Bindable]
+			private var inventory:ArrayCollection;
+			private function init():void
+			{
+			 
+			 
+				fld_search.prompt="Item Number or Description";
+				if (data is null)
+				{
+					lbl_custname.text='Not Defined';
+					lbl_custno.text='9999999999';
+				}
+			}
+
+			protected function btn_search_clickHandler(event:MouseEvent):void
+			{
+				if ((fld_search.text == "") || (fld_search.text.length < 3))
+				{
+					 
+					return;
+				}
+
+				getDataResult.token=getInventory.getData(fld_search.text);
+			}
+
+
+			private function getValueResultHandler():void
+			{
+				// ...
+				lbl_busy.visible = false;
+				 
+			}			
+			
+			protected function fld_search_focusInHandler(event:FocusEvent):void
+			{
+				// TODO Auto-generated method stub
+				fld_search.text = '';				 
+				
+			}
+			
+		 
+		
+			private function labelFunction(item:Object):String {
+				return item.ITEM + " -  " + item.DESCRIPTION;
+			}
+			
+			 
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<getinventory:GetInventory id="getInventory" />
+		<s:CallResponder id="getDataResult"  result="getValueResultHandler()" /> 	
+	</fx:Declarations>
+	
+	<s:navigationContent/>
+	
+	<s:titleContent>
+		<s:TextInput id="fld_search" width="100%" focusIn="fld_search_focusInHandler(event)" />
+	</s:titleContent>
+	
+	<s:actionContent>
+		<s:Button icon="@Embed('assets/search.png')" id="btn_search" click="btn_search_clickHandler(event)"   />
+	</s:actionContent>
+	
+	<s:List id="list" left="0" right="0" top="123" bottom="0"
+			alternatingItemColors="[#66ffff,#33cccc]"
+			fontSize="16" labelField="ITEM"
+			labelFunction="labelFunction" selectionColor="#cc6600">
+		<s:AsyncListView list="{getDataResult.lastResult}"/>
+	</s:List>				
+		 
+	 
+	<s:BusyIndicator id="lbl_busy" visible="false" horizontalCenter="0" verticalCenter="-228"/>
+	<s:Label y="22" left="10" width="144" fontSize="18" text="Customer ID:" textAlign="right"/>
+	<s:Label id="lbl_custno" y="22" left="162" width="395"/>
+	<s:Label y="55" left="10" width="144" fontSize="18" text="Name:" textAlign="right"/>
+	<s:Label id="lbl_custname" y="51" left="162" width="395"/>
+	<s:Label y="94" left="10" right="10" height="23" fontSize="18" text="Item Search Results"
+			 textAlign="center"/>
+
+	
+</s:View>
