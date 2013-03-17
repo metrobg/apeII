@@ -3,7 +3,7 @@
 		xmlns:s="library://ns.adobe.com/flex/spark"
 		title="User Login" xmlns:getuser="services.getuser.*" creationComplete="view1_creationCompleteHandler(event)">
 	
-	<fx:Script>
+	 <fx:Script>
 		<![CDATA[
 			import com.adobe.serializers.utility.TypeUtility;
 			
