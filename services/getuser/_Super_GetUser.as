@@ -29,7 +29,7 @@ internal class _Super_GetUser extends com.adobe.fiber.services.wrapper.HTTPServi
          var argsArray:Array;
 
          operation = new mx.rpc.http.Operation(null, "getData");
-         operation.url = "http://192.168.10.135/xsql/getUser.xsql";
+         operation.url = "http://kuda.metrobg.com/xsql/getUser.xsql";
          operation.method = "GET";
          argsArray = new Array("find","key");
          operation.argumentNames = argsArray;         

@@ -29,7 +29,7 @@ internal class _Super_GetInventory extends com.adobe.fiber.services.wrapper.HTTP
          var argsArray:Array;
 
          operation = new mx.rpc.http.Operation(null, "getData");
-         operation.url = "http://192.168.10.135/xsql/getInventory.xsql";
+         operation.url = "http://kuda.metrobg.com/xsql/getInventory.xsql";
          operation.method = "GET";
          argsArray = new Array("find");
          operation.argumentNames = argsArray;         

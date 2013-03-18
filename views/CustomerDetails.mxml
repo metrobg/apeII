@@ -122,6 +122,10 @@
 	<fx:Declarations>
 		
 	</fx:Declarations>
+	<s:navigationContent>
+		<s:Button icon="@Embed('assets/back.png')"
+				  click="navigator.popView()"/>
+	</s:navigationContent>
 	<s:HGroup verticalAlign="middle" gap="12">
 		
 		<!--<s:Image source="assets/pics/{data.picture}"/>-->

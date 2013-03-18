@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"  backgroundColor="#FEFDFD"
 		xmlns:s="library://ns.adobe.com/flex/spark" title="Main Menu" creationComplete="view1_creationCompleteHandler(event)">
 	<fx:Script>
 		<![CDATA[
@@ -50,5 +50,6 @@
 	</fx:Declarations>
 	<s:Label y="30" left="0" right="0" fontSize="22" text="Select an action from the list below."
 			 textAlign="center"/>
-	<s:List id="list_menu" left="10" right="10" top="100" change="list_menu_changeHandler(event)" labelField="LABEL"/> 
+	<s:List id="list_menu" left="10" right="10" top="100" change="list_menu_changeHandler(event)" 
+			 labelField="LABEL" />
 </s:View>

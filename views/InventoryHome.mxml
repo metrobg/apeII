@@ -76,7 +76,10 @@
 		<s:CallResponder id="getDataResult"  result="getValueResultHandler()" /> 	
 	</fx:Declarations>
 	
-	<s:navigationContent/>
+	<s:navigationContent>
+		<s:Button icon="@Embed('assets/back.png')"
+				  click="navigator.popView()"/>
+	</s:navigationContent>
 	
 	<s:titleContent>
 		<s:TextInput id="fld_search" width="100%" focusIn="fld_search_focusInHandler(event)" />
@@ -95,12 +98,14 @@
 		 
 	
 	<s:BusyIndicator id="lbl_busy" visible="false" horizontalCenter="0" verticalCenter="-228"/>
-	<s:Label y="22" left="10" width="144" fontSize="18" text="Customer ID:" textAlign="right"/>
+	<s:Label y="22" left="10" width="144"  text="Customer ID:" textAlign="right"/>
 	<s:Label id="lbl_custno" y="22" left="162" width="395"/>
-	<s:Label y="55" left="10" width="144" fontSize="18" text="Name:" textAlign="right"/>
+	<s:Label y="55" left="10" width="144" text="Name:" textAlign="right"/>
 	<s:Label id="lbl_custname" y="51" left="162" width="395"/>
-	<s:Label y="94" left="10" right="10" height="23" fontSize="18" text="Item Search Results"
+	<s:Label y="94" left="10" right="10" height="23" text="Item Search Results"
 			 textAlign="center"/>
-
+	
+		
+	
 	
 </s:View>

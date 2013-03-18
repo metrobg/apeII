@@ -14,9 +14,6 @@
 	
 	</fx:Declarations>
 	
-	<s:navigationContent>
-		<s:Button icon="@Embed('assets/back.png')"
-				  click="navigator.popView()"/>
-	</s:navigationContent>
+	
 	
 </s:ViewNavigatorApplication>

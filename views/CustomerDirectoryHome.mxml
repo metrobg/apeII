@@ -123,7 +123,10 @@
 		
 	</fx:Declarations>
 	
-	<s:navigationContent/>
+	<s:navigationContent>
+		<s:Button icon="@Embed('assets/home.png')"
+				  click="navigator.pushView(views.mainMenu)"/>
+	</s:navigationContent>
 	
 	<s:titleContent>
 		<s:TextInput id="fld_search" width="100%" focusIn="fld_search_focusInHandler(event)"
@@ -136,13 +139,27 @@
 	
 	<s:List id="list" left="0" right="0" top="0" bottom="0" alternatingItemColors="[#66ffff,#33cccc]"
 			change="navigator.pushView(CustomerDetails, list.selectedItem)"
-			creationComplete="list_creationCompleteHandler(event)" fontSize="16"
+			creationComplete="list_creationCompleteHandler(event)" 
 			selectionColor="#cc6600">
 		<s:itemRenderer>
 			<fx:Component>
-				<s:IconItemRenderer 
+				<s:IconItemRenderer  iconFunction="iconFunction1"
 					label="{data.CUSTNO}  |  {data.NAME}"
-					messageField="ADDRESS"/>
+					 messageFunction="getMessage">
+				    <fx:Script>
+						<![CDATA[
+						   private function	iconFunction1(obj:Object):String {
+							   return "assets/person.png";
+						   }
+							private function getMessage(obj:Object):String {
+								return obj.ADDRESS1;
+							}
+						]]>
+					</fx:Script>	
+				
+				
+				
+				</s:IconItemRenderer>
 			</fx:Component>
 		</s:itemRenderer>
 		<s:AsyncListView list="{getDataResult.lastResult}"/>
